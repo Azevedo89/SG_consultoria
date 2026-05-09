@@ -297,7 +297,7 @@ export const services = {
     {
       icon: "S",
       title: "Corporate",
-      items: ["Constituição de sociedades", "Cessão de quota, compra e venda de participações", "Fusões, cisões e transformação societária"],
+      items: ["Constituição de sociedades", "Cessão de quotas, compra e venda de participações", "Fusões, cisões e transformação societária"],
     },
     {
       icon: "R",
