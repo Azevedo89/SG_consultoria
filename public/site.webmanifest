@@ -1,0 +1,17 @@
+{
+  "name": "SG Consultoria e Assessoria",
+  "short_name": "SG Consultoria",
+  "description": "Consultoria e Assessoria empresarial em Portugal, Brasil e Cabo Verde.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/assets/sg-logo.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
