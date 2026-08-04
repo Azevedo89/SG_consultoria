@@ -1,8 +1,8 @@
-# Arquitetura
+# Architecture
 
-Este projeto está organizado para separar conteúdo, componentes, secções e estilos. A home é montada por composição, evitando concentrar lógica e layout num único ficheiro.
+This project is organized to separate content, components, sections, and styles. The home page is assembled by composition, avoiding concentrating logic and layout in a single file.
 
-## Visão geral
+## Overview
 
 ```txt
 src/
@@ -19,50 +19,50 @@ src/
 └── styles/
 ```
 
-## Entrada da app
+## App Entry
 
-- `src/main.jsx`: monta a aplicação React.
-- `src/App.jsx`: controla idioma, metadata dinâmica, scroll reveal, preloader, header, secções e footer.
+- `src/main.jsx`: mounts the React application.
+- `src/App.jsx`: controls language, dynamic metadata, scroll reveal, preloader, header, sections, and footer.
 
-O idioma escolhido é persistido em `window.localStorage` sob a chave `language`. Ao recarregar a página ou navegar para uma das páginas legais estáticas (`/politica-de-privacidade.html`, `/privacy-policy.html`, etc.) e voltar, a preferência é mantida.
+The selected language is persisted in `window.localStorage` under the `language` key. On page reload, or when navigating to one of the static legal pages (`/politica-de-privacidade.html`, `/privacy-policy.html`, etc.) and back, the preference is retained.
 
-Ordem atual das secções:
+Current section order:
 
 1. Hero
-2. Método
-3. Abordagem
-4. Áreas de atuação
-5. Experiência executiva
-6. Contactos
+2. Method
+3. Approach
+4. Services
+5. Executive experience
+6. Contact
 7. Footer
 
-## Conteúdo
+## Content
 
-O ficheiro central de conteúdo é:
+The central content file is:
 
 ```txt
 src/data/siteData.js
 ```
 
-Inclui:
+It includes:
 
-- `siteMeta`: títulos, descrições e locale.
-- `anchorIds`: âncoras traduzidas por idioma (`home`, `method`, `approach`, `services`, `about`, `contact`).
-- `navigation`: itens da navbar.
-- `contacts`: telefone, email e endpoint do formulário (FormSubmit).
-- `socialLinks`: Instagram, LinkedIn e Facebook.
-- `offices`: moradas de Portugal, Brasil e Cabo Verde, cada uma com `mapEmbed` para o iframe do Google Maps.
-- `copy`: textos PT/EN do website, incluindo bloco `approach` com `kicker`, `title`, `lead`, `quote` e `quoteCaption`.
-- `heroFacts`: métricas do hero.
-- `processSteps`: passos do método.
-- `approachPillars`: pilares da secção Abordagem (3 cartões com `number`, `eyebrow`, `title`, `text`).
-- `services`: áreas de atuação.
-- `trustMarkers`: marcadores de confiança.
-- `contactSubjects`: opções do formulário.
+- `siteMeta`: titles, descriptions, and locale.
+- `anchorIds`: translated anchors per language (`home`, `method`, `approach`, `services`, `about`, `contact`).
+- `navigation`: navbar items.
+- `contacts`: phone, email, and form endpoint (FormSubmit).
+- `socialLinks`: Instagram, LinkedIn, and Facebook.
+- `offices`: addresses for Portugal, Brazil, and Cape Verde, each with a `mapEmbed` for the Google Maps iframe.
+- `copy`: PT/EN website copy, including the `approach` block with `kicker`, `title`, `lead`, `quote`, and `quoteCaption`.
+- `heroFacts`: hero metrics.
+- `processSteps`: method steps.
+- `approachPillars`: pillars of the Approach section (3 cards with `number`, `eyebrow`, `title`, `text`).
+- `services`: service areas.
+- `trustMarkers`: trust markers.
+- `contactSubjects`: form subject options.
 
-Regra prática: se for texto, link, contacto, morada ou item de lista, começar por `siteData.js`.
+Rule of thumb: if it's text, a link, a contact, an address, or a list item, start in `siteData.js`.
 
-## Componentes
+## Components
 
 ### Layout
 
@@ -70,9 +70,9 @@ Regra prática: se for texto, link, contacto, morada ou item de lista, começar 
 src/components/layout/
 ```
 
-- `Header.jsx`: navbar, idioma, estado ativo no scroll e menu mobile.
-- `Footer.jsx`: footer, moradas, contactos, links legais e redes sociais.
-- `Brand.jsx`: logotipo e texto da marca.
+- `Header.jsx`: navbar, language switch, active state on scroll, and mobile menu.
+- `Footer.jsx`: footer, addresses, contacts, legal links, and social links.
+- `Brand.jsx`: logo and brand text.
 
 ### UI
 
@@ -80,10 +80,10 @@ src/components/layout/
 src/components/ui/
 ```
 
-- `Button.jsx`: botões principais e ghost.
-- `Preloader.jsx`: carregamento inicial.
-- `SectionHeading.jsx`: cabeçalhos das secções.
-- `SocialIcon.jsx`: ícones das redes sociais.
+- `Button.jsx`: primary and ghost buttons.
+- `Preloader.jsx`: initial loading screen.
+- `SectionHeading.jsx`: section headings.
+- `SocialIcon.jsx`: social media icons.
 
 ### Cards
 
@@ -91,24 +91,24 @@ src/components/ui/
 src/components/cards/
 ```
 
-- `ProcessCard.jsx`: cartões do método.
-- `ServiceCard.jsx`: cartões das áreas de atuação.
+- `ProcessCard.jsx`: method step cards.
+- `ServiceCard.jsx`: service area cards.
 
-### Formulário
+### Form
 
 ```txt
 src/components/forms/ContactForm.jsx
 ```
 
-Responsável por:
+Responsible for:
 
-- estado dos campos;
-- validação obrigatória via HTML;
-- submissão AJAX para FormSubmit;
-- fallback com `action` e `method`;
-- mensagens de sucesso/erro.
+- field state;
+- required validation via HTML;
+- AJAX submission to FormSubmit;
+- fallback with `action` and `method`;
+- success/error messages.
 
-## Secções
+## Sections
 
 ```txt
 src/sections/
@@ -121,18 +121,18 @@ src/sections/
 - `About.jsx`
 - `Contact.jsx`
 
-Cada secção recebe `language` e vai buscar os textos ao `siteData.js`.
+Each section receives `language` and pulls its copy from `siteData.js`.
 
-A secção Abordagem é composta por:
+The Approach section is composed of:
 
-- cabeçalho com kicker e título numa só linha (`white-space: nowrap` em `.approach .section-heading h2`);
-- parágrafo de lead;
-- grelha de 3 pilares com stagger reveal (90ms / 180ms);
-- citação destacada com aspa serif decorativa.
+- a heading with kicker and title on a single line (`white-space: nowrap` on `.approach .section-heading h2`);
+- a lead paragraph;
+- a grid of 3 pillars with staggered reveal (90ms / 180ms);
+- a highlighted quote with a decorative serif quotation mark.
 
-A secção Contactos contém o formulário e, em bloco full-width abaixo do `.contact__grid`, três cartões `.office-card` com morada e iframe do Google Maps. O iframe é absolutamente posicionado dentro de um contentor com `overflow: hidden` para permitir clipping consistente.
+The Contact section contains the form and, in a full-width block below `.contact__grid`, three `.office-card` elements with address and Google Maps iframe. The iframe is absolutely positioned inside a container with `overflow: hidden` for consistent clipping.
 
-## Estilos
+## Styles
 
 ```txt
 src/styles/
@@ -142,25 +142,25 @@ src/styles/
 └── sections.css
 ```
 
-- `base.css`: tokens, reset, estilos globais e containers base.
-- `layout.css`: header, footer, navegação e estrutura global.
-- `components.css`: botões, cards, formulário, preloader, ícones e componentes reutilizáveis.
-- `sections.css`: hero e estilos específicos das secções.
+- `base.css`: tokens, reset, global styles, and base containers.
+- `layout.css`: header, footer, navigation, and global structure.
+- `components.css`: buttons, cards, form, preloader, icons, and reusable components.
+- `sections.css`: hero and section-specific styles.
 
-## Responsividade
+## Responsiveness
 
-Breakpoints principais:
+Main breakpoints:
 
-- `380px`: telemóveis muito pequenos.
+- `380px`: very small phones.
 - `760px`: mobile.
-- `900px`: tablets intermédios.
-- `1020px`: troca para navegação mobile/tablet.
-- `1440px`: desktop grande.
-- `1800px`: monitores muito largos.
+- `900px`: intermediate tablets.
+- `1020px`: switches to mobile/tablet navigation.
+- `1440px`: large desktop.
+- `1800px`: very wide monitors.
 
-O site foi ajustado para evitar scroll horizontal, manter o hero compacto no mobile e preservar o conteúdo essencial também em ecrãs pequenos.
+The site was tuned to avoid horizontal scroll, keep the hero compact on mobile, and preserve essential content on small screens as well.
 
-## SEO e ficheiros públicos
+## SEO and Public Files
 
 ```txt
 public/
@@ -170,68 +170,68 @@ public/
 - `sitemap.xml`
 - `site.webmanifest`
 - `CNAME`
-- páginas legais PT/EN
-- imagens em `public/assets` (`sg-logo.png`, `sg-favicon.png`, `sg-about.png`)
+- PT/EN legal pages
+- images in `public/assets` (`sg-logo.png`, `sg-favicon.png`, `sg-about.png`)
 
-O `index.html` inclui:
+`index.html` includes:
 
-- metadata base;
+- base metadata;
 - Open Graph;
 - Twitter Cards;
-- JSON-LD com contactos, redes sociais e moradas.
+- JSON-LD with contacts, social links, and addresses.
 
-## Páginas legais
+## Legal Pages
 
-As páginas legais são HTML estático em `public/` para serem servidas diretamente pelo GitHub Pages:
+The legal pages are static HTML in `public/`, served directly by GitHub Pages:
 
 - `politica-de-privacidade.html`
 - `privacy-policy.html`
 - `termos-de-servico.html`
 - `terms-of-service.html`
 
-Estas páginas não passam pelo React Router, porque o site é uma single page sem router dedicado. O `Footer.jsx` escolhe o ficheiro a apontar consoante o idioma activo (`/privacy-policy.html` em EN, `/politica-de-privacidade.html` em PT, etc.). A preferência de idioma é preservada via `localStorage`, por isso ao voltar à home a partir destas páginas o idioma escolhido é mantido.
+These pages don't go through React Router, since the site is a single page with no dedicated router. `Footer.jsx` chooses which file to point to based on the active language (`/privacy-policy.html` in EN, `/politica-de-privacidade.html` in PT, etc.). The language preference is preserved via `localStorage`, so returning to the home page from these pages keeps the selected language.
 
-Ambas as versões (PT e EN) referem o FormSubmit como prestador técnico do formulário e o Google Maps como serviço de mapas embutidos, para conformidade com regras de transparência.
+Both versions (PT and EN) reference FormSubmit as the technical form provider and Google Maps as the embedded maps service, for compliance with transparency rules.
 
-## Mapas dos escritórios
+## Office Maps
 
-Cada `office` em `siteData.js` tem um campo `mapEmbed` cujo valor é injectado em
-`https://www.google.com/maps?<mapEmbed>&output=embed`. Suporta:
+Each `office` in `siteData.js` has a `mapEmbed` field whose value is injected into
+`https://www.google.com/maps?<mapEmbed>&output=embed`. It supports:
 
-- `cid=<numeric>`: ficha de empresa registada no Google Maps. Usado em Lisboa para apresentar o cartão "Sérgio Gouveia – Consultoria e Assessoria, S.A.".
-- `q=<address>` ou `q=<lat,lng>`: query de morada ou coordenadas. Usado em Brasil e Cabo Verde.
+- `cid=<numeric>`: a registered Google Maps business listing. Used for Lisbon to display the "Sérgio Gouveia – Consultoria e Assessoria, S.A." card.
+- `q=<address>` or `q=<lat,lng>`: an address or coordinate query. Used for Brazil and Cape Verde.
 
-O iframe usa `loading="lazy"` e CORS público da Google. Não é necessária API key, billing nem registo no Google Cloud Console.
+The iframe uses `loading="lazy"` and Google's public CORS. No API key, billing, or Google Cloud Console registration is required.
 
-O CSS aplica um filtro `grayscale + invert` para harmonizar o mapa com o tema escuro do site, e clipa o iframe via `overflow: hidden` no contentor com `position: absolute` no iframe (altura propositadamente maior que a janela visível).
+The CSS applies a `grayscale + invert` filter to harmonize the map with the site's dark theme, and clips the iframe via `overflow: hidden` on the container, with `position: absolute` on the iframe (intentionally taller than the visible viewport).
 
-## Deploy
+## Deployment
 
-O workflow fica em:
+The workflow is located at:
 
 ```txt
 .github/workflows/deploy.yml
 ```
 
-Fluxo:
+Flow:
 
-1. checkout do repositório;
-2. instalação de dependências;
-3. build com Vite;
-4. publicação da pasta `dist` no GitHub Pages.
+1. checkout the repository;
+2. install dependencies;
+3. build with Vite;
+4. publish the `dist` folder to GitHub Pages.
 
-O domínio próprio é controlado por:
+The custom domain is controlled by:
 
 ```txt
 public/CNAME
 ```
 
-## Checklist antes de publicar
+## Pre-publish Checklist
 
-- Correr `npm run build`.
-- Confirmar que o primeiro envio do FormSubmit foi validado no email (botão `Activate`).
-- Verificar `public/CNAME`.
-- Confirmar `public/sitemap.xml`.
-- Rever textos legais (PT e EN) antes de publicação final.
-- Confirmar que os 3 mapas dos escritórios apontam para a localização correcta.
-- Testar mobile, tablet e desktop, e o switch de idioma com navegação para páginas legais.
+- Run `npm run build`.
+- Confirm the first FormSubmit submission was validated via email (the `Activate` button).
+- Check `public/CNAME`.
+- Confirm `public/sitemap.xml`.
+- Review legal copy (PT and EN) before final publication.
+- Confirm the 3 office maps point to the correct locations.
+- Test mobile, tablet, and desktop, and the language switch with navigation to legal pages.
