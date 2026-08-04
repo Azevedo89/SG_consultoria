@@ -54,6 +54,24 @@ export default function App() {
   }, [language]);
 
   useEffect(() => {
+    if (!window.location.hash) return;
+
+    const targetId = window.location.hash.slice(1);
+    const headerOffset = 132;
+
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    };
+
+    const timer = window.setTimeout(scrollToTarget, 1400);
+    return () => window.clearTimeout(timer);
+  }, [language]);
+
+  useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
     const observer = new IntersectionObserver(
       (entries) => {
