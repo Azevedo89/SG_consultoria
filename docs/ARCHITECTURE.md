@@ -71,7 +71,7 @@ src/components/layout/
 ```
 
 - `Header.jsx`: navbar, idioma, estado ativo no scroll e menu mobile.
-- `Footer.jsx`: footer, moradas, contactos, links legais, redes sociais e crédito PrimeSystems.
+- `Footer.jsx`: footer, moradas, contactos, links legais e redes sociais.
 - `Brand.jsx`: logotipo e texto da marca.
 
 ### UI
@@ -171,7 +171,7 @@ public/
 - `site.webmanifest`
 - `CNAME`
 - páginas legais PT/EN
-- imagens em `public/assets`
+- imagens em `public/assets` (`sg-logo.png`, `sg-favicon.png`, `sg-about.png`)
 
 O `index.html` inclui:
 

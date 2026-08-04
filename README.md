@@ -1,31 +1,31 @@
 # SG Consultoria e Assessoria
 
-Website institucional da SG Consultoria e Assessoria, desenvolvido em React com Vite e preparado para publicação em GitHub Pages.
+Institutional website for SG Consultoria e Assessoria, built with React and Vite, and set up for deployment to GitHub Pages.
 
-## Stack
+## Tech Stack
 
-- React
-- Vite
-- CSS organizado por responsabilidade
-- GitHub Pages
-- FormSubmit para submissão do formulário
-- Páginas legais estáticas em PT/EN
+- React 19
+- Vite 7
+- CSS organized by responsibility (base, layout, components, sections)
+- GitHub Pages (via GitHub Actions)
+- FormSubmit for contact form submission
+- Static legal pages in PT/EN
 
-## Funcionalidades
+## Features
 
-- Website bilingue: Português e Inglês, com idioma persistido em `localStorage`.
-- Navegação por âncoras com estado ativo no scroll, incluindo a secção Abordagem.
-- Menu mobile hamburguer.
-- Preloader inicial.
-- Animações de entrada ao fazer scroll, com stagger nos cartões.
-- Secção Abordagem com pilares e citação destacada.
-- Formulário de contacto com todos os campos obrigatórios, incluindo telemóvel.
-- Envio do formulário para `geral@sgconsultoria.pt` via FormSubmit.
-- Mapas do Google Maps embutidos por escritório (Portugal, Brasil, Cabo Verde) sem necessidade de API key.
-- Footer com contactos, moradas, redes sociais, políticas legais e crédito PrimeSystems.
-- SEO base com Open Graph, Twitter Cards, manifest, `robots.txt`, `sitemap.xml` e JSON-LD.
+- Bilingual website: Portuguese and English, with the selected language persisted in `localStorage`.
+- Anchor-based navigation with active state on scroll, including the Approach section.
+- Mobile hamburger menu.
+- Initial preloader.
+- Scroll-triggered entrance animations, with staggered reveal on cards.
+- Approach section with pillars and a highlighted quote.
+- Contact form with all required fields, including phone number.
+- Form submissions sent to `geral@sgconsultoria.pt` via FormSubmit.
+- Embedded Google Maps per office (Portugal, Brazil, Cape Verde) with no API key required.
+- Footer with contacts, addresses, social links, and legal policy links.
+- Baseline SEO: Open Graph, Twitter Cards, web manifest, `robots.txt`, `sitemap.xml`, and JSON-LD.
 
-## Estrutura
+## Project Structure
 
 ```txt
 .
@@ -35,6 +35,7 @@ Website institucional da SG Consultoria e Assessoria, desenvolvido em React com 
 ├── public/
 │   ├── assets/
 │   │   ├── sg-about.png
+│   │   ├── sg-favicon.png
 │   │   └── sg-logo.png
 │   ├── CNAME
 │   ├── politica-de-privacidade.html
@@ -46,7 +47,12 @@ Website institucional da SG Consultoria e Assessoria, desenvolvido em React com 
 │   └── terms-of-service.html
 ├── src/
 │   ├── components/
+│   │   ├── cards/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   └── ui/
 │   ├── data/
+│   │   └── siteData.js
 │   ├── sections/
 │   ├── styles/
 │   ├── App.jsx
@@ -57,104 +63,104 @@ Website institucional da SG Consultoria e Assessoria, desenvolvido em React com 
 └── README.md
 ```
 
-## Desenvolvimento
+## Development
 
-Instalar dependências:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Arrancar em local:
+Run locally:
 
 ```bash
 npm run dev
 ```
 
-Gerar build de produção:
+Build for production:
 
 ```bash
 npm run build
 ```
 
-Pré-visualizar o build:
+Preview the production build:
 
 ```bash
 npm run preview
 ```
 
-## Onde alterar conteúdo
+## Where to Edit Content
 
-O conteúdo principal vive em `src/data/siteData.js`.
+Most of the site's content lives in `src/data/siteData.js`.
 
-Alterar aí:
+Edit there:
 
-- textos PT/EN;
-- navegação;
-- metadados;
-- contactos;
-- links das redes sociais;
-- moradas;
-- áreas de atuação;
-- assuntos do formulário;
-- textos do footer.
+- PT/EN copy;
+- navigation items;
+- metadata;
+- contact details;
+- social media links;
+- office addresses;
+- service areas;
+- form subjects;
+- footer text.
 
-As páginas legais ficam em:
+Static legal pages live in:
 
 - `public/politica-de-privacidade.html`
 - `public/privacy-policy.html`
 - `public/termos-de-servico.html`
 - `public/terms-of-service.html`
 
-## Formulário
+## Contact Form
 
-O formulário usa FormSubmit:
+The form uses FormSubmit:
 
 ```js
 formEndpoint: "https://formsubmit.co/ajax/geral@sgconsultoria.pt"
 ```
 
-Todos os campos visíveis são obrigatórios:
+All visible fields are required:
 
-- Nome
+- Name
 - Email
-- Telemóvel (com `pattern` para evitar lixo)
-- Assunto
-- Mensagem
+- Phone (with a `pattern` to prevent invalid input)
+- Subject
+- Message
 
-Nota: no primeiro envio, o FormSubmit envia um email de activação a `geral@sgconsultoria.pt`. Após carregar no botão `Activate`, todos os pedidos passam a chegar directamente sem mais validação.
+Note: on the very first submission, FormSubmit sends an activation email to `geral@sgconsultoria.pt`. After clicking the `Activate` button in that email, all subsequent submissions are delivered directly with no further validation step.
 
-## Mapas dos escritórios
+## Office Maps
 
-Cada escritório em [`siteData.js`](src/data/siteData.js) tem um campo `mapEmbed` com os parâmetros que o iframe injecta na URL `https://www.google.com/maps?<params>&output=embed`.
+Each office in [`siteData.js`](src/data/siteData.js) has a `mapEmbed` field containing the parameters injected into the iframe URL `https://www.google.com/maps?<params>&output=embed`.
 
-Formatos aceites:
+Supported formats:
 
-- `cid=<numeric>`: aponta para uma ficha de empresa registada no Google Maps (mostra nome, fotos, botão "Abrir no Maps"). Usado em Lisboa.
-- `q=<address>` ou `q=<lat,lng>`: query de morada ou coordenadas.
+- `cid=<numeric>`: points to a registered Google Maps business listing (shows name, photos, "Open in Maps" button). Used for the Lisbon office.
+- `q=<address>` or `q=<lat,lng>`: address or coordinate query.
 
-Não é necessária API key. Funciona em qualquer hosting estático, incluindo GitHub Pages.
+No API key is required. This works on any static hosting, including GitHub Pages.
 
-## Deploy
+## Deployment
 
-O deploy está configurado em `.github/workflows/deploy.yml`.
+Deployment is configured in `.github/workflows/deploy.yml`.
 
-O domínio próprio está definido em:
+The custom domain is defined in:
 
 ```txt
 public/CNAME
 ```
 
-Para o domínio `sgconsultoria.pt`, o `base` do Vite deve ficar em `/`.
+For the `sgconsultoria.pt` domain, Vite's `base` should remain `/`.
 
-Se o projeto for publicado sem domínio próprio, por exemplo em `username.github.io/repositorio`, definir:
+If the project is published without a custom domain (e.g. `username.github.io/repository`), set:
 
 ```bash
-VITE_BASE_PATH=/repositorio/
+VITE_BASE_PATH=/repository/
 ```
 
-antes do build.
+before building.
 
-## Manutenção
+## Architecture and Maintenance
 
-Ver detalhes em `docs/ARCHITECTURE.md`.
+See `docs/ARCHITECTURE.md` for details on the app structure, component responsibilities, styling layers, responsive breakpoints, and a pre-publish checklist.
