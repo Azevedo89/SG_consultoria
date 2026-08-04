@@ -63,14 +63,6 @@ export default function Footer({ language }) {
             <a href={language === "en" ? "/terms-of-service.html" : "/termos-de-servico.html"}>{content.terms}</a>
           </div>
         </div>
-
-        <p className="site-footer__credit">
-          <span>{content.credit}</span>
-          <span className="site-footer__credit-dot" aria-hidden="true" />
-          <a href="https://primesystems.pt" target="_blank" rel="noreferrer">
-            PrimeSystems
-          </a>
-        </p>
       </div>
     </footer>
   );
