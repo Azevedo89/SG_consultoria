@@ -687,3 +687,57 @@ select:focus-visible {
     font-size: 3rem;
   }
 }
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 26px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.cookie-banner p {
+  margin: 0;
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cookie-banner a {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-banner .btn {
+  padding: 10px 20px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 720px) {
+  .cookie-banner {
+    justify-content: flex-start;
+    padding: 14px 16px;
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+  }
+
+  .cookie-banner__actions .btn {
+    flex: 1;
+  }
+}

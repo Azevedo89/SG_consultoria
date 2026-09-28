@@ -6,6 +6,16 @@ export default function Footer({ language }) {
   const content = copy[language].footer;
   const anchors = anchorIds[language];
 
+  const openCookieSettings = (event) => {
+    event.preventDefault();
+    try {
+      window.localStorage.removeItem("sg-consent");
+    } catch {
+      /* localStorage indisponível */
+    }
+    window.dispatchEvent(new Event("sg-consent-reset"));
+  };
+
   return (
     <footer className="site-footer">
       <div className="container">
@@ -61,6 +71,9 @@ export default function Footer({ language }) {
           <div className="footer-legal">
             <a href={language === "en" ? "/privacy-policy.html" : "/politica-de-privacidade.html"}>{content.privacy}</a>
             <a href={language === "en" ? "/terms-of-service.html" : "/termos-de-servico.html"}>{content.terms}</a>
+            <a href="#" onClick={openCookieSettings}>
+              {content.cookies}
+            </a>
           </div>
         </div>
       </div>

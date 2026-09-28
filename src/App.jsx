@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CookieBanner from "./components/CookieBanner.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Header from "./components/layout/Header.jsx";
 import Preloader from "./components/ui/Preloader.jsx";
@@ -102,6 +103,7 @@ export default function App() {
         <Contact language={language} />
       </main>
       <Footer language={language} />
+      <CookieBanner language={language} />
     </>
   );
 }
