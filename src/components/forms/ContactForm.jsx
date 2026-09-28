@@ -61,6 +61,8 @@ export default function ContactForm({ language }) {
         throw new Error("Form submission failed");
       }
 
+      window.gtag?.('event', 'conversion', { send_to: 'AW-18280831262/ir3_CLyi3oMdEJ6y_YxE' });
+
       setForm(initialForm);
       setStatus("success");
       setNote(content.note);
