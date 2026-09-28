@@ -44,6 +44,12 @@ export default function CookieBanner({ language }) {
 
   const decline = () => {
     writeConsent("denied");
+    window.gtag?.("consent", "update", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+    });
     setVisible(false);
   };
 
