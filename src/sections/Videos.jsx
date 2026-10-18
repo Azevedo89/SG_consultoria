@@ -2,8 +2,6 @@ import SectionHeading from "../components/ui/SectionHeading.jsx";
 import { copy, videos } from "../data/siteData.js";
 
 export default function Videos({ language }) {
-  if (language !== "pt") return null;
-
   const content = copy[language].videos;
 
   return (

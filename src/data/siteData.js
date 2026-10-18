@@ -242,6 +242,10 @@ export const copy = {
       noPhone: "Not provided",
       mailSubject: "Contact request",
     },
+    videos: {
+      kicker: "On video",
+      title: "Our approach, explained in two minutes.",
+    },
     footer: {
       tagline: "Consulting and business advisory for demanding clients.",
       navigation: "Navigation",
