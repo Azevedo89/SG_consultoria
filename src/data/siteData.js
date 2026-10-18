@@ -3,6 +3,11 @@ export const assets = {
   about: "/assets/sg-about.png",
 };
 
+export const videos = [
+  { src: "/assets/sg-video-1.mp4", poster: "/assets/sg-video-1.jpg", label: "SG Consultoria e Assessoria em vídeo" },
+  { src: "/assets/sg-video-2.mp4", poster: "/assets/sg-video-2.jpg", label: "SG Consultoria e Assessoria em vídeo" },
+];
+
 export const siteMeta = {
   url: "https://sgconsultoria.pt/",
   name: "SG Consultoria e Assessoria",
@@ -159,6 +164,10 @@ export const copy = {
       missingEndpoint: "Configure o endpoint do formulário antes de publicar.",
       noPhone: "Nao indicado",
       mailSubject: "Pedido de contacto",
+    },
+    videos: {
+      kicker: "Em vídeo",
+      title: "A nossa abordagem, explicada em dois minutos.",
     },
     footer: {
       tagline: "Consultoria e Assessoria empresarial para clientes exigentes.",

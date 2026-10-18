@@ -739,3 +739,27 @@ address strong {
     padding: 38px 0;
   }
 }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.video-card {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .video-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 340px;
+  }
+}

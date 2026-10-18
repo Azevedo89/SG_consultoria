@@ -9,6 +9,7 @@ import Contact from "./sections/Contact.jsx";
 import Hero from "./sections/Hero.jsx";
 import Method from "./sections/Method.jsx";
 import Services from "./sections/Services.jsx";
+import Videos from "./sections/Videos.jsx";
 import { anchorIds, siteMeta } from "./data/siteData.js";
 
 export default function App() {
@@ -100,6 +101,7 @@ export default function App() {
         <Approach language={language} />
         <Services language={language} />
         <About language={language} />
+        <Videos language={language} />
         <Contact language={language} />
       </main>
       <Footer language={language} />
