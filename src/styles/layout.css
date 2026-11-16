@@ -246,10 +246,27 @@
 }
 
 .site-footer__bottom .footer-credit {
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 4px;
+  color: #e9cf98;
   font-weight: 600;
+  vertical-align: middle;
+}
+
+.site-footer__bottom .footer-credit img {
+  width: 30px;
+  height: auto;
+}
+
+.site-footer__bottom .footer-credit span {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
+}
+
+.site-footer__bottom .footer-credit:hover {
+  color: #f5e3bd;
 }
 
 .footer-column--offices p {
