@@ -245,6 +245,13 @@
   transform: translateX(3px);
 }
 
+.site-footer__bottom .footer-credit {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-column--offices p {
   display: grid;
   gap: 2px;
