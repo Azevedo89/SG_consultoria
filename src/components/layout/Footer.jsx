@@ -67,7 +67,9 @@ export default function Footer({ language }) {
         </div>
 
         <div className="site-footer__bottom">
-          <p>© 2026 SG Consultoria e Assessoria. {content.rights}</p>
+          <p>© 2026 SG Consultoria e Assessoria. {content.rights}{" "}
+            <a href="https://vectogest.pt" target="_blank" rel="noopener noreferrer">VectoGest</a>
+          </p>
           <div className="footer-legal">
             <a href={language === "en" ? "/privacy-policy.html" : "/politica-de-privacidade.html"}>{content.privacy}</a>
             <a href={language === "en" ? "/terms-of-service.html" : "/termos-de-servico.html"}>{content.terms}</a>
