@@ -178,7 +178,7 @@ export const copy = {
       privacy: "Política de Privacidade",
       terms: "Termos de Serviço",
       cookies: "Definições de cookies",
-      rights: "Todos os direitos reservados.",
+      rights: "Todos os direitos reservados por",
     },
     cookies: {
       message: "Usamos cookies para medir o desempenho dos nossos anúncios. Pode aceitar ou recusar.",
@@ -255,7 +255,7 @@ export const copy = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       cookies: "Cookie settings",
-      rights: "All rights reserved.",
+      rights: "All rights reserved by",
     },
     cookies: {
       message: "We use cookies to measure the performance of our ads. You can accept or decline.",
